@@ -18,6 +18,9 @@ class Movie(models.Model):
 class Genre(models.Model):
     title = models.CharField(verbose_name='Название жанра', max_length=32)
 
+    def __str__(self):
+        return self.title
+
 
 class MovieGenre(models.Model):
     movie = models.ForeignKey(Movie, verbose_name='Связь к фильму', on_delete=models.CASCADE, related_name='genres')
@@ -38,6 +41,9 @@ class Director(models.Model):
     patronymic = models.CharField(verbose_name='Отчество', max_length=64, null=True, blank=True)
     biography = models.TextField(verbose_name='Биография', max_length=2048)
     photo = models.ImageField(verbose_name='Фото', upload_to='director_images', null=True, blank=True)
+
+    def __str__(self):
+        return "{} {} {}".format(self.first_name, self.last_name, self.patronymic)
 
 
 class MovieDirection(models.Model):
@@ -60,6 +66,8 @@ class Actor(models.Model):
     gender = models.CharField(verbose_name='Пол', choices=ACTOR_GENDER_CHOICES, default=ACTOR_GENDER_CHOICES[0][0], max_length=1)
     birth_date = models.DateField(verbose_name='Дата рождения')
 
+    def __str__(self):
+        return "{} {} {}".format(self.first_name, self.last_name, self.patronymic)
 
 class MovieCast(models.Model):
     movie = models.ForeignKey(Movie, verbose_name='Связь к фильму', on_delete=models.CASCADE, related_name='acted_by')
