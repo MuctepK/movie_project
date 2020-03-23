@@ -120,6 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = 'uploads'
+
 try:
     from .settings_local import *
 except ModuleNotFoundError:
