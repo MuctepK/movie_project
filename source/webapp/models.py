@@ -14,6 +14,8 @@ class Movie(models.Model):
     def __str__(self):
         return self.title
 
+    def short_description(self):
+        return "{}....".format(self.description[:256])
 
 class Genre(models.Model):
     title = models.CharField(verbose_name='Название жанра', max_length=32)
