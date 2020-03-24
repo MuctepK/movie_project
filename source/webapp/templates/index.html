@@ -18,42 +18,14 @@
 		<div class="container">
 			<div class="w3_agile_banner_bottom_grid">
 				<div id="owl-demo" class="owl-carousel owl-theme">
-                    {% for movie in new_movies %}
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="{{ movie.photo.url }}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="#">{{ movie.title }}</a></h6>
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>{{ movie.year }}</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-                            {% if movie.is_new %}
-							<div class="ribben">
-								<p>Новое</p>
-							</div>
-                            {% endif %}
-						</div>
-					</div>
+                    {% for movie in movies %}
+					    {% include 'movies/movie_sm.html' %}
                     {% endfor %}
 				</div>
 			</div>
 		</div>
         </div>
+
     <script src="{% static 'js/jquery.slidey.js' %}"></script>
     <script src="{% static 'js/jquery.dotdotdot.min.js' %}"></script>
 	   <script type="text/javascript">
@@ -67,148 +39,38 @@
 		</script>
 
     <div class="general">
-		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+		<h4 class="latest-text w3_latest_text">Популярные жанры</h4>
 		<div class="container">
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 				<ul id="myTab" class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Featured</a></li>
-					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Top viewed</a></li>
-					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">Top Rating</a></li>
-					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">Recently Added</a></li>
+					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">{{genres.0}}</a></li>
+					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">{{ genres.1 }}</a></li>
+					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">{{ genres.2 }}</a></li>
+					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">{{ genres.3 }}</a></li>
 				</ul>
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-						<h2>Home</h2>
                         <div class="w3_agile_featured_movies">
-							{% for movie in new_movies %}
-						<div class="col-md-4 w3l-movie-gride-agile">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="{{ movie.photo.url }}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">{{ movie.title }}</a></h6>
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>{{movie.year}}</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-                                {% if movie.is_new %}
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-                                {% endif %}
-						</div>
+							{% for connection in genres.0.movies.all %}
+						{% include 'movies/movie_md.html' with movie=connection.movie %}
                      {% endfor %}
 					    </div>
                     </div>
 					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-                        <h2>Profile</h2>
-						{% for movie in new_movies %}
-						<div class="col-md-4 w3l-movie-gride-agile">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="{{ movie.photo.url }}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">{{ movie.title }}</a></h6>
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>{{movie.year}}</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-                                {% if movie.is_new %}
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-                                {% endif %}
-						</div>
+
+						{% for connection in genres.1.movies.all %}
+						{% include 'movies/movie_md.html' with movie=connection.movie %}
                      {% endfor %}
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
-						<h2>Rating</h2>
-                        {% for movie in new_movies %}
-						<div class="col-md-4 w3l-movie-gride-agile">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="{{ movie.photo.url }}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">{{ movie.title }}</a></h6>
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>{{movie.year}}</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-                                {% if movie.is_new %}
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-                                {% endif %}
-						</div>
+
+                        {% for connection in genres.2.movies.all %}
+						{% include 'movies/movie_md.html' with movie=connection.movie %}
                      {% endfor %}
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
-                    <h2>IMDB</h2>
-                        {% for movie in new_movies %}
-						<div class="col-md-4 w3l-movie-gride-agile">
-							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="{{ movie.photo.url }}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">{{ movie.title }}</a></h6>
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>{{movie.year}}</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-                                {% if movie.is_new %}
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-                                {% endif %}
-						</div>
+                        {% for connection in genres.3.movies.all %}
+						{% include 'movies/movie_md.html' with movie=connection.movie %}
                      {% endfor %}
 						<div class="clearfix"> </div>
 					</div>
@@ -216,48 +78,15 @@
 			</div>
 		</div>
 	</div>
+
     <div class="Latest-tv-series">
 		<h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
 		<div class="container">
 			<section class="slider">
 				<div class="flexslider">
 					<ul class="slides">
-                            {% for movie in new_movies %}
-                                <li>
-							<div class="agile_tv_series_grid">
-								<div class="col-md-5 agile_tv_series_grid_left">
-									<div class="w3ls_market_video_grid1">
-										<img src="{{ movie.photo.url }}" alt=" " class="img-responsive carousel-item" />
-										<a class="w3_play_icon" href="#small-dialog">
-											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-										</a>
-									</div>
-								</div>
-								<div class="col-md-7 agile_tv_series_grid_right carousel-item">
-									<p class="fexi_header">{{ movie.title }}</p>
-									<p class="fexi_header_para"><span class="conjuring_w3">Описание<label>:</label></span> {{ movie.short_description }}</p>
-									<p class="fexi_header_para"><span>Дата выхода<label>:</label></span> {{movie.release_date}}</p>
-									<p class="fexi_header_para">
-										<span>Жанры<label>:</label> </span>
-                                        {% for genre in movie.genres.all %}
-                                            {% if forloop.last %}
-                                                <a href="#">{{ genre.genre }}</a>
-                                            {% else %}
-										<a href="#">{{ genre.genre }}</a> |
-                                            {% endif %}
-                                            {% endfor %}
-									</p>
-									<p class="fexi_header_para fexi_header_para1"><span>Рейтинг<label>:</label></span>
-										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
-									</p>
-								</div>
-                            <div class="clearfix"> </div>
-                            </div>
-                                </li>
+                            {% for movie in movies %}
+                                {% include 'movies/movie_lg.html' %}
                             {% endfor %}
 
                     </ul>
