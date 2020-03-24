@@ -1,4 +1,4 @@
-<!-- footer -->
+{% load staticfiles %}
 	<div class="footer">
 		<div class="container">
 			<div class="w3ls_footer_grid">
@@ -48,7 +48,7 @@
 	</div>
 <!-- //footer -->
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script>
 $(document).ready(function(){
     $(".dropdown").hover(

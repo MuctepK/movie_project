@@ -10,4 +10,5 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['slider_movies'] = Movie.objects.all()[:7]
+        context['new_movies'] = Movie.objects.all()
         return context

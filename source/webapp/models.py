@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -15,7 +17,13 @@ class Movie(models.Model):
         return self.title
 
     def short_description(self):
-        return "{}....".format(self.description[:256])
+        return "{}....".format(self.description[:128])
+
+    def year(self):
+        return self.release_date.year
+
+    def is_new(self):
+        return datetime.now().year - self.year() <= 2
 
 class Genre(models.Model):
     title = models.CharField(verbose_name='Название жанра', max_length=32)
