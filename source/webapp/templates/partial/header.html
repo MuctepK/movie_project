@@ -11,8 +11,23 @@
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> (+996) 700 614 223</li>
+
+                    {% if request.user.is_authenticated %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Привет, {{ request.user }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+									<li>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{% url 'accounts:logout' %}">Выйти</a></li>
+										</ul>
+									</div>
+								</ul>
+                        </li>
+                    {% else %}
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> (+996) 700 614 223</li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal">Войти</a></li>
+                    {% endif %}
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -36,9 +51,10 @@
 							  </div>
 							  <div class="form">
 								<h3>Авторизация</h3>
-								<form action="#" method="post">
-								  <input type="text" name="Username" placeholder="Username" required="">
-								  <input type="password" name="Password" placeholder="Password" required="">
+								<form action="{% url 'accounts:login' %}" method="post">
+                                    {% csrf_token %}
+								  {{auth_form.username}}
+								  {{auth_form.password}}
 								  <input type="submit" value="Login">
 								</form>
 							  </div>

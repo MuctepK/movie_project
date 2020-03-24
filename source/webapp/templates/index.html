@@ -80,12 +80,12 @@
 	</div>
 
     <div class="Latest-tv-series">
-		<h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
+		<h4 class="latest-text w3_latest_text w3_home_popular">Новые фильмы</h4>
 		<div class="container">
 			<section class="slider">
 				<div class="flexslider">
 					<ul class="slides">
-                            {% for movie in movies %}
+                            {% for movie in new_movies %}
                                 {% include 'movies/movie_lg.html' %}
                             {% endfor %}
 
