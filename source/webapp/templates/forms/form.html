@@ -1,0 +1,15 @@
+<div class="container form-horizontal mt-20 mb-20">
+    <div class="row">
+        <div class=" card-heading" style="margin:auto;">
+            <h2 class="title text-center">{{title_text}}</h2>
+        </div>
+        <div class="card-body">
+                {% for field in form %}
+                    {% include 'forms/form_field.html' %}
+                {% endfor %}
+            <div class="card-footer text-center">
+            <input class="btn w-50 btn--radius-2 btn-theme-colored btn-flat btn-lg" type="submit" value="{{ button_text }}">
+            </div>
+        </div>
+    </div>
+</div>
