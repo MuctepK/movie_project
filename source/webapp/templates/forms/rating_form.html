@@ -1,0 +1,34 @@
+<div class="all-comments-info">
+							<h4 href="#" class="fa-2x text-center">Оставьте свой отзыв</h4>
+							<div class="agile-info-wthree-box">
+								<form method="POST" action="{% url 'webapp:rating_create' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group row">
+                                        <div class="col-sm-2 control-label">
+                                             {{ rating_form.rating.label }}
+                                        </div>
+                                        <div class="col-sm-5">
+                                            {{ rating_form.rating }}
+                                            {% for error in rating_form.rating.errors %}
+                                                <p class="text-danger">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-2 control-label">
+                                             {{ rating_form.text.label }}
+                                        </div>
+                                        <div class="col-sm-8">
+                                            {{ rating_form.text }}
+                                            {% for error in rating_form.text.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="{{ movie.pk }}" name="movie">
+									<input type="submit" value="Оставить отзыв" class="text-center" style="margin:15px auto;">
+									<div class="clearfix"> </div>
+								</form>
+							</div>
+</div>

@@ -1,8 +1,11 @@
 from django.db.models import Count
-from django.shortcuts import render
-from django.views.generic import TemplateView, DetailView
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.views.generic import TemplateView, DetailView, CreateView
+from django.views.generic.base import View
 
-from webapp.models import Movie, Genre
+from webapp.forms import RatingForm
+from webapp.models import Movie, Genre, Rating
 
 
 class IndexView(TemplateView):
@@ -27,5 +30,26 @@ class MovieDetailView(DetailView):
         context = super().get_context_data()
         context['related_movies'] = Movie.objects.filter(genres__genre__in=self.get_object().get_genres()).distinct().\
             exclude(pk=self.get_object().pk)
+        context['rating_form'] = RatingForm()
         return context
+
+
+class RatingCreateView(View):
+
+    def post(self, request, *args, **kwargs):
+        movie = Movie.objects.get(pk=request.POST.get('movie'))
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.movie = movie
+            rating.reviewer = request.user
+            rating.save()
+            return redirect('webapp:movie_detail', pk=movie.pk)
+        else:
+            context = {'related_movies': Movie.objects.filter(
+                genres__genre__in=movie.get_genres()).distinct(). \
+                exclude(pk=movie.pk), 'rating_form': form,
+                       'movie': movie}
+            return render(request, 'movies/movie_detail.html', context=context)
+
 

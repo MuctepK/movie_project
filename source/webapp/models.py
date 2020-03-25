@@ -56,7 +56,8 @@ class Rating(models.Model):
     movie = models.ForeignKey(Movie, verbose_name='Связь к фильму', on_delete=models.CASCADE, related_name='reviews_taken')
     reviewer = models.ForeignKey('auth.User', verbose_name='Связь к пользователю', on_delete=models.CASCADE, related_name='reviews_given')
     rating = models.PositiveIntegerField(verbose_name='Оценка', validators=[MinValueValidator(1), MaxValueValidator(100)])
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    text = models.TextField(verbose_name='Текст отзыва',max_length=1024, default='-')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания',)
     update_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
 

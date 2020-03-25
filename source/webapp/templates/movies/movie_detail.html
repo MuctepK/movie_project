@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load permission_tags %}
 {% block title %}
     {{ movie.title }}
 {% endblock %}
@@ -46,57 +47,25 @@
 
 
 					<div class="all-comments">
-						<div class="all-comments-info">
-							<a href="#">Отзывы</a>
-							<div class="agile-info-wthree-box">
-								<form>
-									<input type="text" placeholder="Name" required="">
-									<input type="text" placeholder="Email" required="">
-									<input type="text" placeholder="Phone" required="">
-									<textarea placeholder="Message" required=""></textarea>
-									<input type="submit" value="SEND">
-									<div class="clearfix"> </div>
-								</form>
-							</div>
-						</div>
+                        {% if request.user.is_authenticated and request.user|can_review:movie %}
+                        {% include 'forms/rating_form.html' %}
+                        {% endif %}
 						<div class="media-grids">
+                            <h4 href="#" class="fa-2x text-center">Отзывы</h4>
+                            {% for review in movie.reviews_taken.all %}
 							<div class="media">
-								<h5>TOM BROWN</h5>
+								<h5>{{ review.reviewer }}</h5>
 								<div class="media-left">
 									<a href="#">
 										<img src="images/user.jpg" title="One movies" alt=" " />
 									</a>
 								</div>
 								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
+									<p>{{review.text}} {{ review.rating }}</p>
+									<span>Все посты отправленные :<a href="#"> {{review.reviewer}} </a></span>
 								</div>
 							</div>
-							<div class="media">
-								<h5>MARK JOHNSON</h5>
-								<div class="media-left">
-									<a href="#">
-									<img src="images/user.jpg" title="One movies" alt=" " />
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
-								</div>
-							</div>
-							<div class="media">
-								<h5>STEVEN SMITH</h5>
-								<div class="media-left">
-									<a href="#">
-									<img src="images/user.jpg" title="One movies" alt=" " />
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
-								</div>
-							</div>
-
+                            {% endfor %}
 						</div>
 					</div>
 				</div>
@@ -138,6 +107,7 @@
 			</div>
 				<!-- //movie-browse-agile -->
 				<!--body wrapper start-->
+            <h2 class="text-center">Похожие фильмы</h2>
 			<div class="w3_agile_banner_bottom_grid">
 				<div id="owl-demo" class="owl-carousel owl-theme">
 					{% for movie in related_movies %}
