@@ -22,6 +22,12 @@ class Movie(models.Model):
             return sum([review.rating for review in reviews])/(len(reviews))
         return 0
 
+    def get_actors(self):
+        return [actor.actor for actor in self.acted_by.all()]
+
+    def get_directors(self):
+        return [director.director for director in self.directed_by.all()]
+
     def __str__(self):
         return self.title
 
@@ -62,7 +68,7 @@ class Director(models.Model):
     photo = models.ImageField(verbose_name='Фото', upload_to='director_images', null=True, blank=True)
 
     def __str__(self):
-        return "{} {} {}".format(self.first_name, self.last_name, self.patronymic)
+        return "{} {}".format(self.first_name, self.last_name)
 
 
 class MovieDirection(models.Model):
@@ -86,7 +92,7 @@ class Actor(models.Model):
     birth_date = models.DateField(verbose_name='Дата рождения')
 
     def __str__(self):
-        return "{} {} {}".format(self.first_name, self.last_name, self.patronymic)
+        return "{} {}".format(self.first_name, self.last_name, )
 
 class MovieCast(models.Model):
     movie = models.ForeignKey(Movie, verbose_name='Связь к фильму', on_delete=models.CASCADE, related_name='acted_by')
