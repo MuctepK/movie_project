@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from webapp.models import Movie, Genre, Actor, Director, MovieGenre, MovieDirection, MovieCast
+from webapp.models import Movie, Genre, Actor, Director, MovieGenre, MovieDirection, MovieCast, Rating
 
 
 class GenreInline(admin.TabularInline):
@@ -28,3 +28,4 @@ admin.site.register(Movie, MovieAdmin)
 admin.site.register(Genre)
 admin.site.register(Actor)
 admin.site.register(Director)
+admin.site.register(Rating)

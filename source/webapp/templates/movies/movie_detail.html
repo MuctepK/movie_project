@@ -47,9 +47,11 @@
 
 
 					<div class="all-comments">
+
                         {% if request.user.is_authenticated and request.user|can_review:movie %}
                         {% include 'forms/rating_form.html' %}
                         {% endif %}
+
 						<div class="media-grids">
                             <h4 href="#" class="fa-2x text-center">Отзывы</h4>
                             {% for review in movie.reviews_taken.all %}
@@ -65,10 +67,13 @@
 									<span>Все посты отправленные :<a href="#"> {{review.reviewer}} </a></span>
 								</div>
 							</div>
+                                {% empty %}
+                                <h2 class="text-center" style="margin:50px 0;">Еще никто не оставил отзыва...</h2>
                             {% endfor %}
 						</div>
 					</div>
 				</div>
+
 				<div class="col-md-4 single-right">
 					<h3>В ролях были:</h3>
 					<div class="single-grid-right">
@@ -85,6 +90,7 @@
 							<div class="clearfix"> </div>
 						</div>
                         {% endfor %}
+
                     <h3>Режиссеры:</h3>
                     {% for director in movie.get_directors %}
 						<div class="single-right-grids">
@@ -115,7 +121,6 @@
                     {% endfor %}
 				</div>
 			</div>
-		<!--body wrapper end-->
 
 
 				</div>

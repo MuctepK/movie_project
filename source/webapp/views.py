@@ -1,11 +1,10 @@
 from django.db.models import Count
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views.generic import TemplateView, DetailView, CreateView
+from django.views.generic import TemplateView, DetailView, ListView
 from django.views.generic.base import View
 
 from webapp.forms import RatingForm
-from webapp.models import Movie, Genre, Rating
+from webapp.models import Movie, Genre
 
 
 class IndexView(TemplateView):
@@ -51,5 +50,19 @@ class RatingCreateView(View):
                 exclude(pk=movie.pk), 'rating_form': form,
                        'movie': movie}
             return render(request, 'movies/movie_detail.html', context=context)
+
+
+class MovieGenreView(ListView):
+    model = Movie
+    template_name = 'movies/genre_list.html'
+
+    def get_queryset(self):
+        genre = Genre.objects.get(slug=self.kwargs.get('slug'))
+        return Movie.objects.filter(genres__genre=genre)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['genre'] = Genre.objects.get(slug=self.kwargs.get('slug'))
+        return context
 
 

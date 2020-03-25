@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ genre }}
+{% endblock %}
+{% block content %}
+
+        <div class="general">
+        <h4 class="latest-text w3_latest_text">Категория : {{ genre }}</h4>
+            <div class="container">
+                {% for movie in movie_list %}
+                    {% include 'movies/movie_md.html' %}
+                    {% endfor %}
+            </div>
+        </div>
+{% endblock %}

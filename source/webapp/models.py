@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from pytils.translit import slugify
 
 
 class Movie(models.Model):
@@ -40,8 +41,15 @@ class Movie(models.Model):
     def is_new(self):
         return datetime.now().year - self.year() <= 2
 
+
 class Genre(models.Model):
     title = models.CharField(verbose_name='Название жанра', max_length=32)
+    slug = models.SlugField(verbose_name='Идентификация', editable=True, null=True)
+
+    def save(self, *args, **kwargs):
+        value = self.title
+        self.slug = slugify(value)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -94,6 +102,7 @@ class Actor(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name, )
+
 
 class MovieCast(models.Model):
     movie = models.ForeignKey(Movie, verbose_name='Связь к фильму', on_delete=models.CASCADE, related_name='acted_by')
