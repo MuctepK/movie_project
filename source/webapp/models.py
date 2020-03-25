@@ -13,6 +13,15 @@ class Movie(models.Model):
     country = models.CharField(verbose_name='Страна выпуска', max_length=5)
     photo = models.ImageField(verbose_name='Постер к фильму', upload_to='movie_images')
 
+    def get_genres(self):
+        return [genre.genre for genre in self.genres.all()]
+
+    def get_rating(self):
+        reviews = self.reviews_taken.all()
+        if reviews:
+            return sum([review.rating for review in reviews])/(len(reviews))
+        return 0
+
     def __str__(self):
         return self.title
 

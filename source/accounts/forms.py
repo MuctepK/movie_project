@@ -5,16 +5,21 @@ from accounts.models import Profile
 
 
 class RegistrationForm(forms.ModelForm):
-    username = forms.CharField(label='Имя пользователя')
-    password = forms.CharField(label="Подтвердите пароль", widget=forms.PasswordInput, strip=False)
     password_confirm = forms.CharField(label="Подтвердите пароль", widget=forms.PasswordInput, strip=False)
-    first_name = forms.CharField(label ='Имя', required=False)
-    last_name = forms.CharField(label='Фамилия', required=False)
-    email = forms.EmailField(label='Почта', required=False)
 
     class Meta:
         model = User
         fields = ['username', 'password', 'password_confirm', 'first_name', 'last_name', 'email']
+        labels = {
+            'username': 'Логин',
+            'password': 'Пароль',
+            'first_name': 'Имя',
+            'last_name': 'Фамилия',
+            'email': 'Почта',
+        }
+        widgets = {
+            'password': forms.PasswordInput,
+        }
 
     def save(self, commit=True):
         data = self.cleaned_data

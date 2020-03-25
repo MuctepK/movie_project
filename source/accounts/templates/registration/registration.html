@@ -4,6 +4,6 @@
 {% block content %}
     <form action="{% url 'accounts:register' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-        {% include 'forms/form.html' with title='Регистрация' button_text='Зарегистрироваться'%}
+        {% include 'forms/form.html' with title_text='Регистрация' button_text='Зарегистрироваться'%}
     </form>
 {% endblock %}

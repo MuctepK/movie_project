@@ -1,6 +1,6 @@
-<div class="container form-horizontal mt-20 mb-20">
+<div class="container form-horizontal " style="margin: 50px auto;">
     <div class="row">
-        <div class=" card-heading" style="margin:auto;">
+        <div class=" card-heading" style="margin:auto; margin-bottom: 20px;">
             <h2 class="title text-center">{{title_text}}</h2>
         </div>
         <div class="card-body">
@@ -8,7 +8,7 @@
                     {% include 'forms/form_field.html' %}
                 {% endfor %}
             <div class="card-footer text-center">
-            <input class="btn w-50 btn--radius-2 btn-theme-colored btn-flat btn-lg" type="submit" value="{{ button_text }}">
+            <input class="btn w-50 btn--radius-2 btn-primary btn-flat btn-lg" type="submit" value="{{ button_text }}">
             </div>
         </div>
     </div>
