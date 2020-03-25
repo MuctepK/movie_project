@@ -1,18 +1,6 @@
 [
 {
   "model": "webapp.movie",
-  "pk": 5,
-  "fields": {
-    "title": "\u041e\u0441\u0442\u0440\u043e\u0432 \u043f\u0440\u043e\u043a\u043b\u044f\u0442\u044b\u0445",
-    "description": "\u0414\u0432\u0430 \u0430\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u043a\u0438\u0445 \u0441\u0443\u0434\u0435\u0431\u043d\u044b\u0445 \u043f\u0440\u0438\u0441\u0442\u0430\u0432\u0430 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u043d\u0430 \u043e\u0434\u0438\u043d \u0438\u0437 \u043e\u0441\u0442\u0440\u043e\u0432\u043e\u0432 \u0432 \u0448\u0442\u0430\u0442\u0435 \u041c\u0430\u0441\u0441\u0430\u0447\u0443\u0441\u0435\u0442\u0441, \u0447\u0442\u043e\u0431\u044b \u0440\u0430\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u0442\u044c \u0438\u0441\u0447\u0435\u0437\u043d\u043e\u0432\u0435\u043d\u0438\u0435 \u043f\u0430\u0446\u0438\u0435\u043d\u0442\u043a\u0438 \u043a\u043b\u0438\u043d\u0438\u043a\u0438 \u0434\u043b\u044f \u0443\u043c\u0430\u043b\u0438\u0448\u0435\u043d\u043d\u044b\u0445 \u043f\u0440\u0435\u0441\u0442\u0443\u043f\u043d\u0438\u043a\u043e\u0432. \u041f\u0440\u0438 \u043f\u0440\u043e\u0432\u0435\u0434\u0435\u043d\u0438\u0438 \u0440\u0430\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0438\u043c \u043f\u0440\u0438\u0434\u0435\u0442\u0441\u044f \u0441\u0442\u043e\u043b\u043a\u043d\u0443\u0442\u044c\u0441\u044f \u0441 \u043f\u0430\u0443\u0442\u0438\u043d\u043e\u0439 \u043b\u0436\u0438, \u043e\u0431\u0440\u0443\u0448\u0438\u0432\u0448\u0438\u043c\u0441\u044f \u0443\u0440\u0430\u0433\u0430\u043d\u043e\u043c \u0438 \u0441\u043c\u0435\u0440\u0442\u0435\u043b\u044c\u043d\u044b\u043c \u0431\u0443\u043d\u0442\u043e\u043c \u043e\u0431\u0438\u0442\u0430\u0442\u0435\u043b\u0435\u0439 \u043a\u043b\u0438\u043d\u0438\u043a\u0438.",
-    "duration": 132,
-    "release_date": "2010-02-18",
-    "country": "USA",
-    "photo": "movie_images/tzfC3MbNrXGpZNonpYTVJMpHHAz.jpg"
-  }
-},
-{
-  "model": "webapp.movie",
   "pk": 6,
   "fields": {
     "title": "\u0421\u043f\u0430\u0441\u0442\u0438 \u0440\u044f\u0434\u043e\u0432\u043e\u0433\u043e \u0420\u0430\u0439\u0430\u043d\u0430",
@@ -207,542 +195,592 @@
   "model": "webapp.genre",
   "pk": 83,
   "fields": {
-    "title": "\u0422\u043e\u043f-500"
+    "title": "\u0422\u043e\u043f-500",
+    "slug": "top-500"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 84,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0432\u0430\u043c\u043f\u0438\u0440\u043e\u0432"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0432\u0430\u043c\u043f\u0438\u0440\u043e\u0432",
+    "slug": "filmyi-pro-vampirov"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 85,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043b\u044e\u0431\u043e\u0432\u044c"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043b\u044e\u0431\u043e\u0432\u044c",
+    "slug": "filmyi-pro-lyubov"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 86,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0437\u043e\u043c\u0431\u0438"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0437\u043e\u043c\u0431\u0438",
+    "slug": "filmyi-pro-zombi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 87,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043a\u043e\u0441\u043c\u043e\u0441"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043a\u043e\u0441\u043c\u043e\u0441",
+    "slug": "filmyi-pro-kosmos"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 88,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043f\u043e\u0434\u0440\u043e\u0441\u0442\u043a\u043e\u0432"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043f\u043e\u0434\u0440\u043e\u0441\u0442\u043a\u043e\u0432",
+    "slug": "filmyi-pro-podrostkov"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 89,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b-\u043a\u0430\u0442\u0430\u0441\u0442\u0440\u043e\u0444\u044b"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b-\u043a\u0430\u0442\u0430\u0441\u0442\u0440\u043e\u0444\u044b",
+    "slug": "filmyi-katastrofyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 90,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0430\u043a\u0443\u043b"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0430\u043a\u0443\u043b",
+    "slug": "filmyi-pro-akul"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 91,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0448\u043a\u043e\u043b\u0443"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0448\u043a\u043e\u043b\u0443",
+    "slug": "filmyi-pro-shkolu"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 92,
   "fields": {
-    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0442\u0430\u043d\u0446\u044b"
+    "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0442\u0430\u043d\u0446\u044b",
+    "slug": "filmyi-pro-tantsyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 93,
   "fields": {
-    "title": "\u0421\u043e\u0432\u0435\u0442\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438"
+    "title": "\u0421\u043e\u0432\u0435\u0442\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438",
+    "slug": "sovetskie-komedii"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 94,
   "fields": {
-    "title": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432\u043d\u044b\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b"
+    "title": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432\u043d\u044b\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b",
+    "slug": "detektivnyie-serialyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 95,
   "fields": {
-    "title": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0435\u0432\u0438\u043a\u0438"
+    "title": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0435\u0432\u0438\u043a\u0438",
+    "slug": "fantasticheskie-boeviki"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 96,
   "fields": {
-    "title": "\u0424\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438"
+    "title": "\u0424\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438",
+    "slug": "frantsuzskie-komedii"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 97,
   "fields": {
-    "title": "\u0421\u0435\u043c\u0435\u0439\u043d\u044b\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438"
+    "title": "\u0421\u0435\u043c\u0435\u0439\u043d\u044b\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438",
+    "slug": "semejnyie-komedii"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 98,
   "fields": {
-    "title": "\u041c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b \u0434\u043b\u044f \u0441\u0430\u043c\u044b\u0445 \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u0438\u0445"
+    "title": "\u041c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b \u0434\u043b\u044f \u0441\u0430\u043c\u044b\u0445 \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u0438\u0445",
+    "slug": "multfilmyi-dlya-samyih-malenkih"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 99,
   "fields": {
-    "title": "\u041a\u043e\u043c\u0435\u0434\u0438\u0439\u043d\u044b\u0435 \u0431\u043e\u0435\u0432\u0438\u043a\u0438"
+    "title": "\u041a\u043e\u043c\u0435\u0434\u0438\u0439\u043d\u044b\u0435 \u0431\u043e\u0435\u0432\u0438\u043a\u0438",
+    "slug": "komedijnyie-boeviki"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 100,
   "fields": {
-    "title": "\u0418\u043d\u0434\u0438\u0439\u0441\u043a\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b"
+    "title": "\u0418\u043d\u0434\u0438\u0439\u0441\u043a\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b",
+    "slug": "indijskie-filmyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 101,
   "fields": {
-    "title": "\u0420\u043e\u043c\u0430\u043d\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438"
+    "title": "\u0420\u043e\u043c\u0430\u043d\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438",
+    "slug": "romanticheskie-komedii"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 102,
   "fields": {
-    "title": "\u0420\u0443\u0441\u0441\u043a\u0438\u0435 \u043c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u044b"
+    "title": "\u0420\u0443\u0441\u0441\u043a\u0438\u0435 \u043c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u044b",
+    "slug": "russkie-melodramyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 103,
   "fields": {
-    "title": "\u0420\u0443\u0441\u0441\u043a\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b"
+    "title": "\u0420\u0443\u0441\u0441\u043a\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b",
+    "slug": "russkie-serialyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 104,
   "fields": {
-    "title": "\u0420\u0443\u0441\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438"
+    "title": "\u0420\u0443\u0441\u0441\u043a\u0438\u0435 \u043a\u043e\u043c\u0435\u0434\u0438\u0438",
+    "slug": "russkie-komedii"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 105,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u0434\u043b\u044f \u0434\u0435\u0442\u0435\u0439"
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u0434\u043b\u044f \u0434\u0435\u0442\u0435\u0439",
+    "slug": "luchshie-filmyi-dlya-detej"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 106,
   "fields": {
-    "title": "\u0421\u0430\u043c\u044b\u0435 \u043e\u0446\u0435\u043d\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b"
+    "title": "\u0421\u0430\u043c\u044b\u0435 \u043e\u0446\u0435\u043d\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b",
+    "slug": "samyie-otsenivaemyie-filmyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 107,
   "fields": {
-    "title": "\u0421\u0430\u043c\u044b\u0435 \u0440\u0435\u0446\u0435\u043d\u0437\u0438\u0440\u0443\u0435\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b"
+    "title": "\u0421\u0430\u043c\u044b\u0435 \u0440\u0435\u0446\u0435\u043d\u0437\u0438\u0440\u0443\u0435\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b",
+    "slug": "samyie-retsenziruemyie-filmyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 108,
   "fields": {
-    "title": "\u0421\u0430\u043c\u044b\u0435 \u043e\u0436\u0438\u0434\u0430\u0435\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b"
+    "title": "\u0421\u0430\u043c\u044b\u0435 \u043e\u0436\u0438\u0434\u0430\u0435\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b",
+    "slug": "samyie-ozhidaemyie-filmyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 109,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u0432 \u0444\u043e\u0440\u043c\u0430\u0442\u0435 3D"
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u0432 \u0444\u043e\u0440\u043c\u0430\u0442\u0435 3D",
+    "slug": "luchshie-filmyi-v-formate-3d"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 110,
   "fields": {
-    "title": "\u041d\u0435\u0434\u0430\u0432\u043d\u0438\u0435 \u043f\u0440\u0435\u043c\u044c\u0435\u0440\u044b"
+    "title": "\u041d\u0435\u0434\u0430\u0432\u043d\u0438\u0435 \u043f\u0440\u0435\u043c\u044c\u0435\u0440\u044b",
+    "slug": "nedavnie-premeryi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 111,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b"
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b",
+    "slug": "luchshie-serialyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 112,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b \u043c\u0438\u043d\u0438-\u0444\u043e\u0440\u043c\u0430\u0442\u0430"
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b \u043c\u0438\u043d\u0438-\u0444\u043e\u0440\u043c\u0430\u0442\u0430",
+    "slug": "luchshie-serialyi-mini-formata"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 113,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0430\u0437\u0438\u0430\u0442\u0441\u043a\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b"
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0430\u0437\u0438\u0430\u0442\u0441\u043a\u0438\u0435 \u0441\u0435\u0440\u0438\u0430\u043b\u044b",
+    "slug": "luchshie-aziatskie-serialyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 114,
   "fields": {
-    "title": "\u0410\u043d\u0438\u043c\u0435"
+    "title": "\u0410\u043d\u0438\u043c\u0435",
+    "slug": "anime"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 115,
   "fields": {
-    "title": "\u0410\u043d\u0438\u043c\u0435-\u0441\u0435\u0440\u0438\u0430\u043b\u044b"
+    "title": "\u0410\u043d\u0438\u043c\u0435-\u0441\u0435\u0440\u0438\u0430\u043b\u044b",
+    "slug": "anime-serialyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 116,
   "fields": {
-    "title": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f"
+    "title": "\u0411\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f",
+    "slug": "biografiya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 117,
   "fields": {
-    "title": "\u0411\u043e\u0435\u0432\u0438\u043a\u0438"
+    "title": "\u0411\u043e\u0435\u0432\u0438\u043a\u0438",
+    "slug": "boeviki"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 118,
   "fields": {
-    "title": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d\u044b"
+    "title": "\u0412\u0435\u0441\u0442\u0435\u0440\u043d\u044b",
+    "slug": "vesternyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 119,
   "fields": {
-    "title": "\u0412\u043e\u0435\u043d\u043d\u044b\u0435"
+    "title": "\u0412\u043e\u0435\u043d\u043d\u044b\u0435",
+    "slug": "voennyie"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 120,
   "fields": {
-    "title": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432\u044b"
+    "title": "\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432\u044b",
+    "slug": "detektivyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 121,
   "fields": {
-    "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435"
+    "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435",
+    "slug": "dokumentalnyie"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 122,
   "fields": {
-    "title": "\u0414\u0440\u0430\u043c\u044b"
+    "title": "\u0414\u0440\u0430\u043c\u044b",
+    "slug": "dramyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 123,
   "fields": {
-    "title": "\u0418\u0441\u0442\u043e\u0440\u0438\u044f"
+    "title": "\u0418\u0441\u0442\u043e\u0440\u0438\u044f",
+    "slug": "istoriya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 124,
   "fields": {
-    "title": "\u041a\u043e\u043c\u0435\u0434\u0438\u0438"
+    "title": "\u041a\u043e\u043c\u0435\u0434\u0438\u0438",
+    "slug": "komedii"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 125,
   "fields": {
-    "title": "\u041a\u043e\u0440\u043e\u0442\u043a\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u043a\u0438"
+    "title": "\u041a\u043e\u0440\u043e\u0442\u043a\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u043a\u0438",
+    "slug": "korotkometrazhki"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 126,
   "fields": {
-    "title": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b"
+    "title": "\u041a\u0440\u0438\u043c\u0438\u043d\u0430\u043b",
+    "slug": "kriminal"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 127,
   "fields": {
-    "title": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u044b"
+    "title": "\u041c\u0435\u043b\u043e\u0434\u0440\u0430\u043c\u044b",
+    "slug": "melodramyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 128,
   "fields": {
-    "title": "\u041c\u0443\u043b\u044c\u0442\u0441\u0435\u0440\u0438\u0430\u043b\u044b"
+    "title": "\u041c\u0443\u043b\u044c\u0442\u0441\u0435\u0440\u0438\u0430\u043b\u044b",
+    "slug": "multserialyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 129,
   "fields": {
-    "title": "\u041c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b"
+    "title": "\u041c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b",
+    "slug": "multfilmyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 130,
   "fields": {
-    "title": "\u041c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b (\u043a\u043e\u0440\u043e\u0442\u043a\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u043a\u0438)"
+    "title": "\u041c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b (\u043a\u043e\u0440\u043e\u0442\u043a\u043e\u043c\u0435\u0442\u0440\u0430\u0436\u043a\u0438)",
+    "slug": "multfilmyi-korotkometrazhki"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 131,
   "fields": {
-    "title": "\u041c\u044e\u0437\u0438\u043a\u043b"
+    "title": "\u041c\u044e\u0437\u0438\u043a\u043b",
+    "slug": "myuzikl"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 132,
   "fields": {
-    "title": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f"
+    "title": "\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f",
+    "slug": "priklyucheniya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 133,
   "fields": {
-    "title": "\u0421\u0435\u043c\u0435\u0439\u043d\u044b\u0435"
+    "title": "\u0421\u0435\u043c\u0435\u0439\u043d\u044b\u0435",
+    "slug": "semejnyie"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 134,
   "fields": {
-    "title": "\u0421\u043f\u043e\u0440\u0442"
+    "title": "\u0421\u043f\u043e\u0440\u0442",
+    "slug": "sport"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 135,
   "fields": {
-    "title": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440\u044b"
+    "title": "\u0422\u0440\u0438\u043b\u043b\u0435\u0440\u044b",
+    "slug": "trilleryi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 136,
   "fields": {
-    "title": "\u0423\u0436\u0430\u0441\u044b"
+    "title": "\u0423\u0436\u0430\u0441\u044b",
+    "slug": "uzhasyi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 137,
   "fields": {
-    "title": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430"
+    "title": "\u0424\u0430\u043d\u0442\u0430\u0441\u0442\u0438\u043a\u0430",
+    "slug": "fantastika"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 138,
   "fields": {
-    "title": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438"
+    "title": "\u0424\u044d\u043d\u0442\u0435\u0437\u0438",
+    "slug": "fentezi"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 139,
   "fields": {
-    "title": "\u041b\u044e\u0431\u0438\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u043c\u0443\u0436\u0447\u0438\u043d"
+    "title": "\u041b\u044e\u0431\u0438\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u043c\u0443\u0436\u0447\u0438\u043d",
+    "slug": "lyubimyie-filmyi-muzhchin"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 140,
   "fields": {
-    "title": "\u041b\u044e\u0431\u0438\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u0436\u0435\u043d\u0449\u0438\u043d"
+    "title": "\u041b\u044e\u0431\u0438\u043c\u044b\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u0436\u0435\u043d\u0449\u0438\u043d",
+    "slug": "lyubimyie-filmyi-zhenschin"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 141,
   "fields": {
-    "title": "\u0410\u0432\u0441\u0442\u0440\u0430\u043b\u0438\u044f"
+    "title": "\u0410\u0432\u0441\u0442\u0440\u0430\u043b\u0438\u044f",
+    "slug": "avstraliya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 142,
   "fields": {
-    "title": "\u0412\u0435\u043b\u0438\u043a\u043e\u0431\u0440\u0438\u0442\u0430\u043d\u0438\u044f"
+    "title": "\u0412\u0435\u043b\u0438\u043a\u043e\u0431\u0440\u0438\u0442\u0430\u043d\u0438\u044f",
+    "slug": "velikobritaniya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 143,
   "fields": {
-    "title": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f"
+    "title": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f",
+    "slug": "germaniya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 144,
   "fields": {
-    "title": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f (\u0424\u0420\u0413)"
+    "title": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u044f (\u0424\u0420\u0413)",
+    "slug": "germaniya-frg"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 145,
   "fields": {
-    "title": "\u0413\u043e\u043d\u043a\u043e\u043d\u0433"
+    "title": "\u0413\u043e\u043d\u043a\u043e\u043d\u0433",
+    "slug": "gonkong"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 146,
   "fields": {
-    "title": "\u0418\u0441\u043f\u0430\u043d\u0438\u044f"
+    "title": "\u0418\u0441\u043f\u0430\u043d\u0438\u044f",
+    "slug": "ispaniya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 147,
   "fields": {
-    "title": "\u0418\u0442\u0430\u043b\u0438\u044f"
+    "title": "\u0418\u0442\u0430\u043b\u0438\u044f",
+    "slug": "italiya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 148,
   "fields": {
-    "title": "\u041a\u0430\u043d\u0430\u0434\u0430"
+    "title": "\u041a\u0430\u043d\u0430\u0434\u0430",
+    "slug": "kanada"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 149,
   "fields": {
-    "title": "\u0420\u043e\u0441\u0441\u0438\u044f"
+    "title": "\u0420\u043e\u0441\u0441\u0438\u044f",
+    "slug": "rossiya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 150,
   "fields": {
-    "title": "\u0420\u043e\u0441\u0441\u0438\u044f + \u0421\u0421\u0421\u0420"
+    "title": "\u0420\u043e\u0441\u0441\u0438\u044f + \u0421\u0421\u0421\u0420",
+    "slug": "rossiya--sssr"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 151,
   "fields": {
-    "title": "\u0421\u0421\u0421\u0420"
+    "title": "\u0421\u0421\u0421\u0420",
+    "slug": "sssr"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 152,
   "fields": {
-    "title": "\u0421\u0428\u0410"
+    "title": "\u0421\u0428\u0410",
+    "slug": "ssha"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 153,
   "fields": {
-    "title": "\u0424\u0440\u0430\u043d\u0446\u0438\u044f"
+    "title": "\u0424\u0440\u0430\u043d\u0446\u0438\u044f",
+    "slug": "frantsiya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 154,
   "fields": {
-    "title": "\u042f\u043f\u043e\u043d\u0438\u044f"
+    "title": "\u042f\u043f\u043e\u043d\u0438\u044f",
+    "slug": "yaponiya"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 155,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043a\u043e\u043d\u0435\u0446 \u0441\u0432\u0435\u0442\u0430"
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u0444\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u043a\u043e\u043d\u0435\u0446 \u0441\u0432\u0435\u0442\u0430",
+    "slug": "luchshie-filmyi-pro-konets-sveta"
   }
 },
 {
   "model": "webapp.genre",
   "pk": 156,
   "fields": {
-    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u043d\u043e\u0432\u043e\u0433\u043e\u0434\u043d\u0438\u0435 \u043c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b"
-  }
-},
-{
-  "model": "webapp.moviegenre",
-  "pk": 1,
-  "fields": {
-    "movie": 5,
-    "genre": 122
-  }
-},
-{
-  "model": "webapp.moviegenre",
-  "pk": 2,
-  "fields": {
-    "movie": 5,
-    "genre": 135
-  }
-},
-{
-  "model": "webapp.moviegenre",
-  "pk": 3,
-  "fields": {
-    "movie": 5,
-    "genre": 120
+    "title": "\u041b\u0443\u0447\u0448\u0438\u0435 \u043d\u043e\u0432\u043e\u0433\u043e\u0434\u043d\u0438\u0435 \u043c\u0443\u043b\u044c\u0442\u0444\u0438\u043b\u044c\u043c\u044b",
+    "slug": "luchshie-novogodnie-multfilmyi"
   }
 },
 {
@@ -1280,14 +1318,6 @@
 },
 {
   "model": "webapp.moviedirection",
-  "pk": 1,
-  "fields": {
-    "movie": 5,
-    "director": 10
-  }
-},
-{
-  "model": "webapp.moviedirection",
   "pk": 2,
   "fields": {
     "movie": 6,
@@ -1659,14 +1689,6 @@
     "photo": "actor_images/kIRs1PlRtGH1C5Hr3fK2oyDtJXF.jpg",
     "gender": "M",
     "birth_date": "1962-12-22"
-  }
-},
-{
-  "model": "webapp.moviecast",
-  "pk": 1,
-  "fields": {
-    "movie": 5,
-    "actor": 11
   }
 },
 {

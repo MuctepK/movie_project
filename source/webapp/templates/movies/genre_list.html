@@ -10,6 +10,9 @@
                 {% for movie in movie_list %}
                     {% include 'movies/movie_md.html' %}
                     {% endfor %}
+            {% if is_paginated %}
+                {% include 'partial/pagination.html' %}
+            {% endif %}
             </div>
         </div>
 {% endblock %}

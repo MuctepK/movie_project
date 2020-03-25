@@ -16,7 +16,6 @@ class IndexView(TemplateView):
         context['movies'] = Movie.objects.all()
         context['genres'] = Genre.objects.filter(movies__isnull=False).annotate(count=Count('movies')).order_by('-count')[:4]
         context['new_movies'] = Movie.objects.all().order_by('-release_date')[:5]
-        print(context['genres'])
         return context
 
 
@@ -55,6 +54,9 @@ class RatingCreateView(View):
 class MovieGenreView(ListView):
     model = Movie
     template_name = 'movies/genre_list.html'
+    paginate_by = 6
+    paginate_orphans = 0
+
 
     def get_queryset(self):
         genre = Genre.objects.get(slug=self.kwargs.get('slug'))
