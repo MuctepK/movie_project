@@ -1,10 +1,10 @@
 from django.db.models import Count
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, DetailView, ListView
+from django.views.generic import TemplateView, DetailView, ListView, CreateView
 from django.views.generic.base import View
 
-from webapp.forms import RatingForm
-from webapp.models import Movie, Genre
+from webapp.forms import RatingForm, MovieForm, GenreFormSet, ActorFormSet, DirectorFormSet
+from webapp.models import Movie, Genre, MovieGenre, MovieCast, MovieDirection
 
 
 class IndexView(TemplateView):
@@ -66,5 +66,36 @@ class MovieGenreView(ListView):
         context = super().get_context_data(**kwargs)
         context['genre'] = Genre.objects.get(slug=self.kwargs.get('slug'))
         return context
+
+
+class MovieCreateView(CreateView):
+    model = Movie
+    template_name = 'movies/create.html'
+    form_class = MovieForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['genre_formset'] = GenreFormSet(prefix='genre_formset')
+        context['actor_formset'] = ActorFormSet(prefix='actor_formset')
+        context['director_formset'] = DirectorFormSet(prefix='director_formset')
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        genre_formset = GenreFormSet(request.POST, prefix='genre_formset')
+        actor_formset = ActorFormSet(request.POST, prefix='actor_formset')
+        director_formset = DirectorFormSet(request.POST, prefix='director_formset')
+        if form.is_valid() and genre_formset.is_valid() and actor_formset.is_valid() and director_formset.is_valid():
+            movie = form.save()
+            for genre in genre_formset:
+                MovieGenre.objects.create(genre=genre.cleaned_data['title'], movie=movie)
+            for actor in actor_formset:
+                MovieCast.objects.create(actor=actor.cleaned_data['actor'], movie=movie)
+            for director in director_formset:
+                MovieDirection.objects.create(director=director.cleaned_data['director'], movie=movie)
+            return redirect('webapp:movie_detail', pk=movie.pk)
+        else:
+            context = {'form': form, 'genre_formset': genre_formset, 'actor_formset':actor_formset, 'director_formset': director_formset}
+            return render(request, self.template_name, context=context)
 
 

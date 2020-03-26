@@ -1,0 +1,30 @@
+{% load widget_tweaks %}
+<div id="{{formset.prefix}}">
+{{ formset.management_form }}
+{% for form in formset.forms %}
+    <div class="single_{{formset.prefix}}">
+        {% for field in form.visible_fields %}
+            {% if field.label == 'Delete' %}
+                <div class="d-none">
+                {{ field }}
+                </div>
+            {% else %}
+                <div class="form-group">
+                    <div class="col-sm-2 control-label col-sm-push-2 font-18">{{ field.label }}</div>
+                    <div class="col-sm-5 col-sm-push-2">
+                        {{ field|add_class:"form-control" }}
+                    </div>
+                    {% for error in field.errors %}
+
+                        <div class="col-sm-8 col-sm-push-2"><p class="text-danger">{{ error }}</p></div>
+
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Создание фильма
+{% endblock %}
+
+{% block content %}
+     <form action="{% url 'webapp:movie_create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% include 'forms/form.html' with title_text='Создать фильм' button_text='Создать'%}
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+    $(function() {
+        $('#genre_formset .single_genre_formset').formset({
+            prefix: 'genre_formset',
+            addText: 'Добавить еще жанр',
+            deleteText: 'Удалить этот жанр',
+            addCssClass: 'btn btn-success add-btn d-block mx-auto mb-15 mt-15',
+            deleteCssClass: 'btn btn-danger delete-btn d-block mx-auto mb-15 mt-15'
+        });
+        $('#actor_formset .single_actor_formset').formset({
+            prefix: 'actor_formset',
+            addText: 'Добавить еще актера',
+            deleteText: 'Удалить этого актера',
+            addCssClass: 'btn btn-success add-btn d-block mx-auto mb-15 mt-15',
+            deleteCssClass: 'btn btn-danger delete-btn d-block mx-auto mb-15 mt-15'
+        });
+        $('#director_formset .single_director_formset').formset({
+            prefix: 'director_formset',
+            addText: 'Добавить еще режиссера',
+            deleteText: 'Удалить этого режиссера',
+            addCssClass: 'btn btn-success add-btn d-block mx-auto mb-15 mt-15',
+            deleteCssClass: 'btn btn-danger delete-btn d-block mx-auto mb-15 mt-15'
+        });
+    })
+</script>
+    <script src="{% static 'js/jquery.formset.js' %}" type="text/javascript"></script>
+{% endblock %}

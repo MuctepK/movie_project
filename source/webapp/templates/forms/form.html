@@ -7,6 +7,15 @@
                 {% for field in form %}
                     {% include 'forms/form_field.html' %}
                 {% endfor %}
+                {% if genre_formset %}
+                        {% include 'forms/formset.html' with formset=genre_formset %}
+                {% endif %}
+                {% if actor_formset %}
+                        {% include 'forms/formset.html' with formset=actor_formset %}
+                {% endif %}
+                {% if director_formset %}
+                        {% include 'forms/formset.html' with formset=director_formset %}
+                {% endif %}
             <div class="card-footer text-center">
             <input class="btn w-50 btn--radius-2 btn-primary btn-flat btn-lg" type="submit" value="{{ button_text }}">
             </div>
