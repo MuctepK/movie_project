@@ -62,8 +62,14 @@
 <body>
     {% include 'partial/header.html' %}
     {% include 'partial/navigation_panel.html' %}
-
-{% block menu %}{% endblock %}
+                            {% block menu %}
+                            {% endblock %}
+						</ul>
+					</nav>
+				</div>
+			</nav>
+		</div>
+	</div>
 
     {% block content %}{% endblock %}
 {% include 'partial/footer.html' %}

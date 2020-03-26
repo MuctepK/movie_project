@@ -3,6 +3,10 @@
 {% block title %}
     {{ movie.title }}
 {% endblock %}
+{% block menu %}
+    <li><a href="{% url 'webapp:movie_update' movie.pk %}">Изменить  фильм</a></li>
+    <li><a href="{% url 'webapp:movie_delete' movie.pk%}">Удалить  фильм</a></li>
+{% endblock %}
 {% block content %}
 <div class="single-page-agile-main">
 <div class="container">
