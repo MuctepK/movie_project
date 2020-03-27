@@ -4,6 +4,12 @@ from django.forms import formset_factory, inlineformset_factory
 from webapp.models import Rating, Movie, Genre, Actor, Director
 
 
+class DirectorForm(forms.ModelForm):
+    class Meta:
+        model = Director
+        exclude = []
+
+
 class ActorForm(forms.ModelForm):
     class Meta:
         model = Actor

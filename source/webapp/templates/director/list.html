@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Все режиссёры
+{% endblock %}
+{% block menu %}
+         <li><a href="{% url 'webapp:director_create' %}">Добавить режиссера</a></li>
+{% endblock %}
+{% block content %}
+    <div class="general">
+        <h4 class="latest-text w3_latest_text">Все режиссеры</h4>
+            <div class="container">
+                {% for director in directors %}
+                <div class="col-md-3 w3l-movie-gride-agile">
+							<a href="{% url 'webapp:director_detail' director.pk %}" class="hvr-shutter-out-horizontal">
+                                {% if director.photo %}
+                                <img src="{{ director.photo.url }}" title="album-name" class="img-responsive" alt=" " />
+                                {% else %}
+                                <img src="{% static 'images/no-photo-person.png' %}" title="album-name" class="img-responsive" alt=" " />
+                                {% endif %}
+
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6 class="fa"><a href="{% url 'webapp:director_detail' director.pk %}">{{ director }}</a></h6>
+								</div>
+							</div>
+						</div>
+            {% endfor %}
+            {% if is_paginated %}
+                {% include 'partial/pagination.html' %}
+            {% endif %}
+            </div>
+        </div>
+
+{% endblock %}

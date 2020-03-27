@@ -104,10 +104,10 @@
                     {% for director in movie.get_directors %}
 						<div class="single-right-grids">
 							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="{{director.photo.url}}" alt="" /></a>
+								<a href="{% url 'webapp:director_detail' director.pk %}"><img src="{{director.photo.url}}" alt="" /></a>
 							</div>
 							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title author"> {{director}}</a>
+								<a href="{% url 'webapp:director_detail' director.pk %}" class="title author"> {{director}}</a>
 							</div>
 							<div class="clearfix"> </div>
 						</div>

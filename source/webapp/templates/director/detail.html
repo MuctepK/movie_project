@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load permission_tags %}
+{% load staticfiles %}
+{% block title %}
+    {{ director }}
+{% endblock %}
+{% block menu %}
+    <li><a href="#">Изменить  режиссера</a></li>
+    <li><a href="#">Удалить  режиссера</a></li>
+{% endblock %}
+{% block content %}
+<div class="single-page-agile-main">
+<div class="container">
+			<div class="single-page-agile-info">
+                   <!-- /movie-browse-agile -->
+                           <div class="show-top-grids-w3lagile">
+				<div class="col-sm-8 single-left">
+					<div class="song">
+						<div class="song-info">
+							<h2 class="text-center">{{director}}</h2>
+					</div>
+                        <div class="col-sm-5">
+                            {% if director.photo %}
+                            <img src="{{ director.photo.url }}" alt="" class="img-responsive">
+                            {% else %}
+                            <img src="{% static 'images/no-photo-person.png' %}" alt="" class="img-responsive">
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-7 ">
+                            <h3 class="text-center">Биография</h3>
+                            <p class="fa" style="margin-top: 15px;">{{ director.biography }}</p>
+
+					</div>
+                    <div class="clearfix"></div>
+
+
+				</div>
+                </div>
+
+				<div class="col-md-4 single-right">
+					<h3 class="text-center">Был режиссером в:</h3>
+					<div class="single-grid-right">
+                        {% for movie in movies %}
+						<div class="single-right-grids">
+							<div class="col-md-4 single-right-grid-left">
+								<a href="{% url 'webapp:movie_detail' movie.pk %}"><img src="{{movie.photo.url}}" alt="" /></a>
+							</div>
+							<div class="col-md-8 single-right-grid-right">
+								<a href="{% url 'webapp:movie_detail' movie.pk %}" class="title"> {{ movie.title }}</a>
+								<p class="author"><a href="#" class="author">{{movie.release_date|date:"d-m-Y"}}</a></p>
+								<p class="views">{{movie.country}}</p>
+							</div>
+                            <div class="clearfix"> </div>
+                            </div>
+                            {% empty %}
+                            <h4 class="text-center">Нигде не участвовал</h4>
+							<div class="clearfix"> </div>
+						</div>
+                        {% endfor %}
+
+					</div>
+				</div>
+
+
+
+				<div class="clearfix"> </div>
+			</div>
+				<!-- //movie-browse-agile -->
+				<!--body wrapper start-->
+
+
+
+				</div>
+				<!-- //w3l-latest-movies-grids -->
+			</div>
+		</div>
+
+{% endblock %}

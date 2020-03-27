@@ -17,7 +17,9 @@ class ActorCreateView(CreateView):
     template_name = 'actor/create.html'
     model = Actor
     form_class = ActorForm
-    success_url = reverse_lazy('webapp:actor_list')
+
+    def get_success_url(self):
+        return reverse('webapp:actor_detail', kwargs={'pk': self.object.pk})
 
 
 class ActorDetailView(DetailView):
