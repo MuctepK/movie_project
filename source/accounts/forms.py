@@ -43,3 +43,14 @@ class RegistrationForm(forms.ModelForm):
             return self.cleaned_data['username']
         raise forms.ValidationError("Такой логин уже используется", code='login_in_use')
 
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['photo', 'about_me']

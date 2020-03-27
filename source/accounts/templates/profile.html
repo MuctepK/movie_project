@@ -5,7 +5,7 @@
 {% endblock %}
 {% block menu %}
     {% if request.user.is_authenticated and request.user.pk == user.pk %}
-    <li><a href="#">Изменить личные данные</a></li>
+    <li><a href="{% url 'accounts:profile_update' user.pk %}">Изменить личные данные</a></li>
     {% endif %}
 {% endblock %}
 {% block content %}
