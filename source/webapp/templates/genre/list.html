@@ -2,12 +2,14 @@
 {% block title %}
     Список всех категорий
 {% endblock %}
+{% block menu %}
+    <li><a href="{% url 'webapp:genre_create' %}">Добавить жанр</a></li>
+{% endblock %}
 {% block content %}
     <div class="container">
     <table class="table my-table" >
     <tr><th scope="col">№</th><th scope="col">Название жанра</th><th scope="col">Изменить</th><th scope="col">Удалить</th></tr>
     <h1 class="text-center" style="margin-top: 25px;">Все жанры</h1>
-        <h3 class="text-center"><a href="{% url 'webapp:genre_create' %}" class="btn btn-success text-center" style="text-align: center; margin:30px auto;">Добавить новый жанр</a></h3>
     {% for genre in genres %}
         <tr>
         <th scope="col">{{ forloop.counter }}</th><td style="color: black">{{ genre.title }}</td><td><a href="{% url 'webapp:genre_update' genre.pk %}">Изменить этот жанр</a></td><td><a href="{% url 'webapp:genre_delete' genre.pk %}">Удалить этот жанр</a></td>

@@ -1527,3 +1527,13 @@ h3.head {
     margin:50px 0;
     color:black;
 }
+.my-link-style{
+    color: #fff;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #FF8D1B;
+    text-align: center;
+    padding: 6px 30px;
+    font-weight: bold;
+}

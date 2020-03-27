@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Добавление актёра
+{% endblock %}
+
+{% block content %}
+     <form action="{% url 'webapp:actor_create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% include 'forms/form.html' with title_text='Добавить актера' button_text='Добавить'%}
+    </form>
+{% endblock %}

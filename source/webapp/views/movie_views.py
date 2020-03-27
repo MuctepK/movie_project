@@ -54,7 +54,7 @@ class RatingCreateView(View):
 
 class MovieGenreView(ListView):
     model = Movie
-    template_name = 'movies/genre_list.html'
+    template_name = 'movies/genre_movie_list.html'
     paginate_by = 6
     paginate_orphans = 0
 
