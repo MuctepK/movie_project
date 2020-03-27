@@ -12,7 +12,7 @@
             <div class="container">
                 {% for actor in actors %}
                 <div class="col-md-3 w3l-movie-gride-agile">
-							<a href="#" class="hvr-shutter-out-horizontal">
+							<a href="{% url 'webapp:actor_detail' actor.pk %}" class="hvr-shutter-out-horizontal">
                                 {% if actor.photo %}
                                 <img src="{{ actor.photo.url }}" title="album-name" class="img-responsive" alt=" " />
                                 {% else %}
@@ -22,7 +22,7 @@
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
 								<div class="w3l-movie-text">
-									<h6 class="fa"><a href="#">{{ actor }}</a></h6>
+									<h6 class="fa"><a href="{% url 'webapp:actor_detail' actor.pk %}">{{ actor }}</a></h6>
 								</div>
 								<div class="mid-2 agile_mid_2_home">
 									<p>Д.Р.:{{actor.birth_date|date:"d.m.Y"}}</p>
