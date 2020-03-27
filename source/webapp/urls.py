@@ -3,7 +3,7 @@ from django.urls import path
 from webapp.views import IndexView, MovieDetailView, RatingCreateView, MovieGenreView, MovieCreateView, MovieUpdateView, \
     MovieDeleteView, GenreCreateView, GenreListView, GenreUpdateView, GenreDeleteView, ActorListView, ActorCreateView, \
     ActorDetailView, ActorUpdateView, ActorDeleteView, DirectorListView, DirectorDetailView, DirectorCreateView, \
-    DirectorUpdateView, DirectorDeleteView
+    DirectorUpdateView, DirectorDeleteView, RatingUpdateView, RatingDeleteView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -11,7 +11,6 @@ urlpatterns = [
     path('movies/create/', MovieCreateView.as_view(), name='movie_create'),
     path('movies/<int:pk>/update/', MovieUpdateView.as_view(), name='movie_update'),
     path('movies/<int:pk>/delete/', MovieDeleteView.as_view(), name='movie_delete'),
-    path('rating/create/', RatingCreateView.as_view(), name='rating_create'),
     path('movies/<str:slug>', MovieGenreView.as_view(), name='movie_genre'),
     path('genres/create/', GenreCreateView.as_view(), name='genre_create'),
     path('genres/', GenreListView.as_view(), name='genre_list'),
@@ -27,6 +26,9 @@ urlpatterns = [
     path('directors/<int:pk>/', DirectorDetailView.as_view(), name='director_detail'),
     path('directors/<int:pk>/update/', DirectorUpdateView.as_view(), name='director_update'),
     path('directors/<int:pk>/delete/', DirectorDeleteView.as_view(), name='director_delete'),
+    path('rating/create/', RatingCreateView.as_view(), name='rating_create'),
+    path('rating/<int:pk>/update/', RatingUpdateView.as_view(), name='rating_update'),
+    path('rating/<int:pk>/delete/', RatingDeleteView.as_view(), name='rating_delete'),
 ]
 
 app_name = 'webapp'

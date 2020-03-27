@@ -58,7 +58,7 @@
 					<div class="all-comments">
 
                         {% if request.user.is_authenticated and request.user|can_review:movie %}
-                        {% include 'forms/rating_form.html' %}
+                        {% include 'forms/../rating/rating_form.html' %}
                         {% endif %}
 
 						<div class="media-grids">
@@ -75,6 +75,12 @@
 									<p>{{review.text}} {{ review.rating }}</p>
 									<span>Все посты отправленные :<a href="#"> {{review.reviewer}} </a></span>
 								</div>
+                                {% if request.user.is_authenticated and review.reviewer == request.user %}
+                                <div class="media-bottom">
+                                    <a href="{% url 'webapp:rating_update' review.pk %}" class="btn btn-primary">Изменить этот отзыв</a>
+                                <a href="{% url 'webapp:rating_delete' review.pk %}" class="btn btn-danger">Удалить этот отзыв</a>
+                                </div>
+                                {% endif %}
 							</div>
                                 {% empty %}
                                 <h2 class="text-center" style="margin:50px 0;">Еще никто не оставил отзыва...</h2>

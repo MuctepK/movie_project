@@ -33,23 +33,7 @@ class MovieDetailView(DetailView):
         return context
 
 
-class RatingCreateView(View):
 
-    def post(self, request, *args, **kwargs):
-        movie = Movie.objects.get(pk=request.POST.get('movie'))
-        form = RatingForm(request.POST)
-        if form.is_valid():
-            rating = form.save(commit=False)
-            rating.movie = movie
-            rating.reviewer = request.user
-            rating.save()
-            return redirect('webapp:movie_detail', pk=movie.pk)
-        else:
-            context = {'related_movies': Movie.objects.filter(
-                genres__genre__in=movie.get_genres()).distinct(). \
-                exclude(pk=movie.pk), 'rating_form': form,
-                       'movie': movie}
-            return render(request, 'movies/movie_detail.html', context=context)
 
 
 class MovieGenreView(ListView):
