@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Изменение жанра
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+     <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% include 'forms/form.html' with title_text='Изменить жанр' button_text='Изменить'%}
+    </form>
+{% endblock %}

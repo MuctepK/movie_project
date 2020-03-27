@@ -10,7 +10,7 @@
         <h3 class="text-center"><a href="{% url 'webapp:genre_create' %}" class="btn btn-success text-center" style="text-align: center; margin:30px auto;">Добавить новый жанр</a></h3>
     {% for genre in genres %}
         <tr>
-        <th scope="col">{{ forloop.counter }}</th><td style="color: black">{{ genre.title }}</td><td><a href="#">Изменить этот жанр</a></td><td><a href="#">Удалить этот жанр</a></td>
+        <th scope="col">{{ forloop.counter }}</th><td style="color: black">{{ genre.title }}</td><td><a href="{% url 'webapp:genre_update' genre.pk %}">Изменить этот жанр</a></td><td><a href="{% url 'webapp:genre_delete' genre.pk %}">Удалить этот жанр</a></td>
         </tr>
     {% endfor %}
     </table>
