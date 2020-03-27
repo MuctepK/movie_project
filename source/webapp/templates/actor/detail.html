@@ -5,8 +5,8 @@
     {{ actor }}
 {% endblock %}
 {% block menu %}
-    <li><a href="#">Изменить  актера</a></li>
-    <li><a href="#">Удалить  актера</a></li>
+    <li><a href="{% url 'webapp:actor_update' actor.pk%}">Изменить  актера</a></li>
+    <li><a href="{% url 'webapp:actor_delete' actor.pk%}">Удалить  актера</a></li>
 {% endblock %}
 {% block content %}
 <div class="single-page-agile-main">

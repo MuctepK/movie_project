@@ -1,5 +1,6 @@
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, DetailView
+from django.shortcuts import redirect
+from django.urls import reverse_lazy, reverse
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from webapp.forms import ActorForm
 from webapp.models import Actor, Movie
@@ -27,3 +28,18 @@ class ActorDetailView(DetailView):
         context = super().get_context_data()
         context['movies'] = Movie.objects.filter(acted_by__actor=self.get_object())
         return context
+
+
+class ActorUpdateView(UpdateView):
+    template_name = 'actor/update.html'
+    model = Actor
+    form_class = ActorForm
+
+    def get_success_url(self):
+        return reverse('webapp:actor_detail', kwargs={'pk': self.get_object().pk})
+
+
+class ActorDeleteView(DeleteView):
+    template_name = 'actor/delete.html'
+    model = Actor
+    success_url = reverse_lazy('webapp:actor_list')
