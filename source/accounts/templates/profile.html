@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Профиль {{ user }}
+{% endblock %}
+{% block menu %}
+    {% if request.user.is_authenticated and request.user.pk == user.pk %}
+    <li><a href="#">Изменить личные данные</a></li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="single-page-agile-main">
+<div class="container">
+			<div class="single-page-agile-info">
+                   <!-- /movie-browse-agile -->
+                           <div class="show-top-grids-w3lagile">
+				<div class="col-sm-12 single-left">
+					<div class="song">
+						<div class="song-info">
+							<h2 class="text-center">Профиль пользователя:{{user}}</h2>
+					</div>
+                        <div class="col-sm-5">
+                            {% if user.profile.photo %}
+                            <img src="{{ user.profile.photo.url }}" alt="" class="img-responsive">
+                            {% else %}
+                            <img src="{% static 'images/no-photo-person.png' %}" alt="" class="img-responsive">
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-7 ">
+                            <h3 class="text-center">Информация</h3>
+                            <p></p>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">Имя:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa">{{ user.first_name|default:"Не указано" }}</p></div>
+
+                            <div class="col-sm-5" style="margin: 5px 0;"> <p class="fa">Фамилия:</p></div>
+                            <div class="col-sm-7" style="margin: 5px 0;"><p class="fa">{{ user.last_name|default:"Не указано" }}</p></div>
+                            <div class="col-sm-5" style="margin: 5px 0;"> <p class="fa">Почта:</p></div>
+                            <div class="col-sm-7" style="margin: 5px 0;"><p class="fa">{{ user.email|default:"Не указано" }}</p></div>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">О себе:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa">{{ user.profile.about_me|default:"Не указано" }}</p></div>
+
+					</div>
+                    </div>
+                </div>
+                    <div class="reviews" style="margin:50px 0;">
+                        <h2 class="text-center" style="margin-bottom: 50px;">Отзывы к фильмам</h2>
+                        {% for review in user.reviews_given.all %}
+                            <div class="col-sm-5">
+                            {% if review.movie.photo %}
+                                <img src="{{ review.movie.photo.url }}" alt="" class="img-responsive">
+                                {% else %}
+                                <img src="{% static 'images/no-photo-film.png' %}" alt="" class="img-responsive">
+                            {% endif %}
+                            <a class="w3_play_icon" href="{% url 'webapp:movie_detail' review.movie.pk %}">
+                                <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                            </a>
+                            </div>
+                            <div class="col-sm-7">
+                            <h3 class="text-center">{{ review.movie.title }}</h3>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">Описание:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa">{{ review.movie.description }}</p></div>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">Год выпуска:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa">{{ review.movie.release_date|date:"d-m-Y" }}</p></div>
+                            <h3 class="text-center">Отзыв пользователя</h3>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">Отзыв:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa">{{ review.text }}</p></div>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">Оценка:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa-2x">{{ review.rating }}/100</p></div>
+                            <div class="col-sm-5 " style="margin: 15px 0;"> <p class="fa">Дата создания:</p></div>
+                            <div class="col-sm-7" style="margin: 15px 0;"><p class="fa">{{ review.created_at|date:"d-m-Y" }}</p></div>
+                            </div>
+
+                    <div class="clearfix" style="margin: 75px 0;"></div>
+                            {% empty %}
+                            <h2 class="text-center">Пользователь еще не давал отзывов</h2>
+                        {% endfor %}
+
+                    <div class="clearfix"></div>
+                    </div>
+
+
+				</div>
+                </div>
+                           </div>
+            </div>
+</div>
+</div>
+{% endblock %}

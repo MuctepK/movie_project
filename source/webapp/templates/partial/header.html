@@ -19,6 +19,7 @@
 									<li>
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
+                                            <li><a href="{% url 'accounts:profile_detail' request.user.pk %}" style="margin-bottom: 15px;">Мой профиль</a></li>
 											<li><a href="{% url 'accounts:logout' %}">Выйти</a></li>
 										</ul>
 									</div>
