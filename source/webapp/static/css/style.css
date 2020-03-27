@@ -1523,3 +1523,7 @@ h3.head {
     align-content: center;
     margin: 0 auto;
 }
+.my-table{
+    margin:50px 0;
+    color:black;
+}

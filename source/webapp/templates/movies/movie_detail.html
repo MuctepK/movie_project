@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load permission_tags %}
+{% load staticfiles %}
 {% block title %}
     {{ movie.title }}
 {% endblock %}
@@ -19,7 +20,11 @@
 							<h2 class="text-center">{{movie.title}} ({{ movie.year }})</h2>
 					</div>
                         <div class="col-sm-5">
+                            {% if movie.photo %}
                             <img src="{{ movie.photo.url }}" alt="" class="img-responsive">
+                            {% else %}
+                            <img src="{% static 'images/no-photo-film.png' %}" alt="" class="img-responsive">
+                            {% endif %}
                         </div>
                         <div class="col-sm-7 ">
                             <h3 class="text-center">Описание</h3>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Создание жанра
+{% endblock %}
+
+{% block content %}
+     <form action="{% url 'webapp:genre_create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% include 'forms/form.html' with title_text='Создать жанр' button_text='Создать'%}
+    </form>
+{% endblock %}

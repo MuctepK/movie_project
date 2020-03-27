@@ -117,7 +117,7 @@ class MovieUpdateView(UpdateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST, request.FILES)
+        form = self.form_class(request.POST, request.FILES, instance=self.get_object())
         genre_formset = GenreFormSet(request.POST, prefix='genre_formset')
         actor_formset = ActorFormSet(request.POST, prefix='actor_formset')
         director_formset = DirectorFormSet(request.POST, prefix='director_formset')
@@ -145,6 +145,3 @@ class MovieDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('webapp:index')
-
-
-

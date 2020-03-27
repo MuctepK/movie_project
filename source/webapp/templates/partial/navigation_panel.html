@@ -37,6 +37,7 @@
 											{% for genre in menu_genres|slice:"14:" %}
 											<li><a href="{% url 'webapp:movie_genre' genre.slug %}">{{ genre }}</a></li>
                                             {% endfor %}
+                                            <li><a href="{% url 'webapp:genre_list' %}">Все жанры</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>

@@ -1,8 +1,13 @@
+{% load staticfiles %}
 <li>
     <div class="agile_tv_series_grid">
         <div class="col-md-6 agile_tv_series_grid_left">
             <div class="w3ls_market_video_grid1">
+                {% if movie.photo %}
                 <img src="{{ movie.photo.url }}" alt=" " class="img-responsive carousel-item" />
+                {% else %}
+                <img src="{% static 'images/no-photo-film.png' %}" alt=" " class="img-responsive carousel-item" />
+                {% endif %}
                 <a class="w3_play_icon" href="{% url 'webapp:movie_detail' movie.pk %}">
                     <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
                 </a>

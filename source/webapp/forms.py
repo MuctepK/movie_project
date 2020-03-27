@@ -4,6 +4,12 @@ from django.forms import formset_factory, inlineformset_factory
 from webapp.models import Rating, Movie, Genre, Actor, Director
 
 
+class GenreForm(forms.ModelForm):
+    class Meta:
+        model = Genre
+        fields = ['title']
+
+
 class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
@@ -11,13 +17,14 @@ class RatingForm(forms.ModelForm):
 
 
 class MovieForm(forms.ModelForm):
+    photo = forms.ImageField(required=False, label='Постер')
 
     class Meta:
         model = Movie
         exclude = []
 
 
-class GenreForm(forms.Form):
+class GenreFormsetForm(forms.Form):
     title = forms.ModelChoiceField(queryset=Genre.objects.all(), label='Жанр')
 
 
@@ -29,7 +36,7 @@ class DirectorFormSetForm(forms.Form):
     director = forms.ModelChoiceField(queryset=Director.objects.all(), label = 'Режиссёр')
 
 
-GenreFormSet = formset_factory(GenreForm, extra=0, min_num=1, max_num=10, can_delete=True)
+GenreFormSet = formset_factory(GenreFormsetForm, extra=0, min_num=1, max_num=10, can_delete=True)
 ActorFormSet = formset_factory(ActorFormsetForm, extra=0, min_num=1, max_num=10, can_delete=True)
 DirectorFormSet = formset_factory(DirectorFormSetForm, extra=0, min_num=1, max_num=10, can_delete=True)
 
