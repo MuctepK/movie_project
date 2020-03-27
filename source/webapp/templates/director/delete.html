@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Удалить режиссера{% endblock %}
+{% block content %}
+    <div class="container" style="margin:100px auto;">
+        <h3 class="text-center fa-2x">Вы уверены что хотите  удалить режиссера :<br>"{{ object }}"?</h3>
+        <form method="POST"  class="text-center">
+            {% csrf_token %}
+            <div class="confirm" style="display: flex; justify-content: center; ">
+                <p><input type="submit" value="Да" class="mt-5 btn btn-danger"></p>
+                <p><a href="{% url 'webapp:director_detail' object.pk%}" class="mt-5 btn  btn-primary">Нет</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

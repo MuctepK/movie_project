@@ -2,7 +2,8 @@ from django.urls import path
 
 from webapp.views import IndexView, MovieDetailView, RatingCreateView, MovieGenreView, MovieCreateView, MovieUpdateView, \
     MovieDeleteView, GenreCreateView, GenreListView, GenreUpdateView, GenreDeleteView, ActorListView, ActorCreateView, \
-    ActorDetailView, ActorUpdateView, ActorDeleteView, DirectorListView, DirectorDetailView, DirectorCreateView
+    ActorDetailView, ActorUpdateView, ActorDeleteView, DirectorListView, DirectorDetailView, DirectorCreateView, \
+    DirectorUpdateView, DirectorDeleteView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -22,8 +23,10 @@ urlpatterns = [
     path('actors/<int:pk>/update/', ActorUpdateView.as_view(), name='actor_update'),
     path('actors/<int:pk>/delete/', ActorDeleteView.as_view(), name='actor_delete'),
     path('directors/', DirectorListView.as_view(), name='director_list'),
-    path('directors/<int:pk>/', DirectorDetailView.as_view(), name='director_detail'),
     path('directors/create/', DirectorCreateView.as_view(), name='director_create'),
+    path('directors/<int:pk>/', DirectorDetailView.as_view(), name='director_detail'),
+    path('directors/<int:pk>/update/', DirectorUpdateView.as_view(), name='director_update'),
+    path('directors/<int:pk>/delete/', DirectorDeleteView.as_view(), name='director_delete'),
 ]
 
 app_name = 'webapp'

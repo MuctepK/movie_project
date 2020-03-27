@@ -5,8 +5,8 @@
     {{ director }}
 {% endblock %}
 {% block menu %}
-    <li><a href="#">Изменить  режиссера</a></li>
-    <li><a href="#">Удалить  режиссера</a></li>
+    <li><a href="{% url 'webapp:director_update' director.pk %}">Изменить  режиссера</a></li>
+    <li><a href="{% url 'webapp:director_delete' director.pk %}">Удалить  режиссера</a></li>
 {% endblock %}
 {% block content %}
 <div class="single-page-agile-main">
