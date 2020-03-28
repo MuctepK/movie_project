@@ -45,20 +45,11 @@
 								</ul>
 							</li>
 
-							<li><a href="#">От А до Я</a></li>
 
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Люди<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-									<li>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="{% url 'webapp:actor_list' %}" class="my-link-style">Актеры</a></li>
-                                            <li style="margin-top: 10px;"><a href="{% url 'webapp:director_list' %}" class="my-link-style">Режиссеры</a></li>
-										</ul>
-									</div>
-                                    </li>
-								</ul>
-                        </li>
 
+                            <li><a href="{% url 'webapp:actor_list' %}" >Актеры</a></li>
+                            <li><a href="{% url 'webapp:director_list' %}" >Режиссеры</a></li>
+
+                            {% if perms.webapp.add_movie %}
                             <li><a href="{% url 'webapp:movie_create' %}">Добавить фильм</a></li>
+                            {% endif %}

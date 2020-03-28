@@ -5,8 +5,12 @@
     {{ director }}
 {% endblock %}
 {% block menu %}
+    {% if perms.webapp.change_director %}
     <li><a href="{% url 'webapp:director_update' director.pk %}">Изменить  режиссера</a></li>
+    {% endif %}
+    {% if perms.webapp.delete_movie %}
     <li><a href="{% url 'webapp:director_delete' director.pk %}">Удалить  режиссера</a></li>
+    {% endif %}
 {% endblock %}
 {% block content %}
 <div class="single-page-agile-main">

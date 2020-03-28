@@ -5,8 +5,12 @@
     {{ actor }}
 {% endblock %}
 {% block menu %}
+    {% if perms.webapp.change_actor %}
     <li><a href="{% url 'webapp:actor_update' actor.pk%}">Изменить  актера</a></li>
+    {% endif %}
+    {% if perms.webapp.delete_actor %}
     <li><a href="{% url 'webapp:actor_delete' actor.pk%}">Удалить  актера</a></li>
+    {% endif %}
 {% endblock %}
 {% block content %}
 <div class="single-page-agile-main">

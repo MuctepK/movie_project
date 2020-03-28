@@ -4,7 +4,9 @@
     Все режиссёры
 {% endblock %}
 {% block menu %}
+        {% if perms.webapp.add_director %}
          <li><a href="{% url 'webapp:director_create' %}">Добавить режиссера</a></li>
+        {% endif %}
 {% endblock %}
 {% block content %}
     <div class="general">

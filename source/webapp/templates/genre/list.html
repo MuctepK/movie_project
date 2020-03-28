@@ -3,16 +3,20 @@
     Список всех категорий
 {% endblock %}
 {% block menu %}
+    {% if perms.webapp.add_genre %}
     <li><a href="{% url 'webapp:genre_create' %}">Добавить жанр</a></li>
+    {% endif %}
 {% endblock %}
 {% block content %}
     <div class="container">
     <table class="table my-table" >
-    <tr><th scope="col">№</th><th scope="col">Название жанра</th><th scope="col">Изменить</th><th scope="col">Удалить</th></tr>
+    <tr><th scope="col">№</th><th scope="col">Название жанра</th>{% if perms.webapp.change_genre %}<th scope="col">Изменить</th>{% endif %}{% if perms.webapp.delete_genre %}<th scope="col">Удалить</th>{% endif %}</tr>
     <h1 class="text-center" style="margin-top: 25px;">Все жанры</h1>
     {% for genre in genres %}
         <tr>
-        <th scope="col">{{ forloop.counter }}</th><td style="color: black">{{ genre.title }}</td><td><a href="{% url 'webapp:genre_update' genre.pk %}">Изменить этот жанр</a></td><td><a href="{% url 'webapp:genre_delete' genre.pk %}">Удалить этот жанр</a></td>
+        <th scope="col">{{ forloop.counter }}</th><td style="color: black">{{ genre.title }}</td>
+            {% if perms.webapp.change_genre %}<td><a href="{% url 'webapp:genre_update' genre.pk %}">Изменить этот жанр</a></td>{% endif %}
+            {% if perms.webapp.delete_genre %}<td><a href="{% url 'webapp:genre_delete' genre.pk %}">Удалить этот жанр</a></td>{% endif %}
         </tr>
     {% endfor %}
     </table>

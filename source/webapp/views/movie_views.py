@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -33,15 +34,11 @@ class MovieDetailView(DetailView):
         return context
 
 
-
-
-
 class MovieGenreView(ListView):
     model = Movie
     template_name = 'movies/genre_movie_list.html'
     paginate_by = 6
     paginate_orphans = 0
-
 
     def get_queryset(self):
         genre = Genre.objects.get(slug=self.kwargs.get('slug'))
@@ -53,10 +50,11 @@ class MovieGenreView(ListView):
         return context
 
 
-class MovieCreateView(CreateView):
+class MovieCreateView(PermissionRequiredMixin, CreateView):
     model = Movie
     template_name = 'movies/create.html'
     form_class = MovieForm
+    permission_required = 'webapp.add_movie'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
@@ -84,11 +82,12 @@ class MovieCreateView(CreateView):
             return render(request, self.template_name, context=context)
 
 
-class MovieUpdateView(UpdateView):
+class MovieUpdateView(PermissionRequiredMixin,UpdateView):
     model = Movie
     template_name = 'movies/update.html'
     form_class = MovieForm
     context_object_name = 'movie'
+    permission_required = 'webapp.change_movie'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
@@ -123,9 +122,10 @@ class MovieUpdateView(UpdateView):
             return render(request, self.template_name, context=context)
 
 
-class MovieDeleteView(DeleteView):
+class MovieDeleteView(PermissionRequiredMixin, DeleteView):
     model = Movie
     template_name = 'movies/delete.html'
+    permission_required = 'webapp.delete_movie'
 
     def get_success_url(self):
         return reverse('webapp:index')

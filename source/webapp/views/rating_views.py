@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.generic import UpdateView, DeleteView
@@ -26,7 +27,7 @@ class RatingCreateView(View):
             return render(request, 'movies/movie_detail.html', context=context)
 
 
-class RatingUpdateView(UpdateView):
+class RatingUpdateView(UserPassesTestMixin, UpdateView):
     model = Rating
     template_name = 'rating/update.html'
     form_class = RatingForm
@@ -34,8 +35,11 @@ class RatingUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('webapp:movie_detail', kwargs={'pk': self.object.movie.pk})
 
+    def test_func(self):
+        return self.request.user == self.object.reviewer
 
-class RatingDeleteView(DeleteView):
+
+class RatingDeleteView(UserPassesTestMixin, DeleteView):
     model = Rating
     template_name = 'rating/delete.html'
 
@@ -45,3 +49,6 @@ class RatingDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('webapp:movie_detail', kwargs={'pk': self.movie.pk})
+
+    def test_func(self):
+        return self.request.user == self.object.reviewer

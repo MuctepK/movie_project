@@ -5,8 +5,12 @@
     {{ movie.title }}
 {% endblock %}
 {% block menu %}
+    {% if perms.webapp.change_movie %}
     <li><a href="{% url 'webapp:movie_update' movie.pk %}">Изменить  фильм</a></li>
+    {% endif %}
+    {% if perms.webapp.delete_movie %}
     <li><a href="{% url 'webapp:movie_delete' movie.pk%}">Удалить  фильм</a></li>
+    {% endif %}
 {% endblock %}
 {% block content %}
 <div class="single-page-agile-main">
@@ -59,7 +63,10 @@
 
                         {% if request.user.is_authenticated and request.user|can_review:movie %}
                         {% include 'forms/../rating/rating_form.html' %}
+                            {% else %}
+                            <h4><a href="{% url 'accounts:login' %}">Войдите</a> в систему, чтобы оставить отзыв.</h4>
                         {% endif %}
+
 
 						<div class="media-grids">
                             <h4 href="#" class="fa-2x text-center">Отзывы</h4>

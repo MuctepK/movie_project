@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -23,25 +24,28 @@ class DirectorDetailView(DetailView):
         return context
 
 
-class DirectorCreateView(CreateView):
+class DirectorCreateView(PermissionRequiredMixin, CreateView):
     model = Director
     template_name = 'director/create.html'
     form_class = DirectorForm
+    permission_required = 'webapp.add_director'
 
     def get_success_url(self):
         return reverse('webapp:director_detail', kwargs={'pk': self.object.pk})
 
 
-class DirectorUpdateView(UpdateView):
+class DirectorUpdateView(PermissionRequiredMixin, UpdateView):
     model = Director
     template_name = 'director/update.html'
     form_class = DirectorForm
+    permission_required = 'webapp.change_director'
 
     def get_success_url(self):
         return reverse('webapp:director_detail', kwargs={'pk': self.object.pk})
 
 
-class DirectorDeleteView(DeleteView):
+class DirectorDeleteView(PermissionRequiredMixin, DeleteView):
     model = Director
     template_name = 'director/delete.html'
     success_url = reverse_lazy('webapp:director_list')
+    permission_required = 'webapp.delete_director'

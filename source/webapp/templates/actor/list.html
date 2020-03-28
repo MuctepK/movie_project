@@ -4,7 +4,9 @@
     Все актеры
 {% endblock %}
 {% block menu %}
+        {% if perms.webapp.add_actor %}
          <li><a href="{% url 'webapp:actor_create' %}">Добавить актера</a></li>
+        {% endif %}
 {% endblock %}
 {% block content %}
     <div class="general">
