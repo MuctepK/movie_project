@@ -26,7 +26,7 @@ class GenreUpdateView(PermissionRequiredMixin, UpdateView):
     form_class = GenreForm
     context_object_name = 'genre'
     success_url = reverse_lazy('webapp:genre_list')
-    permission_required = 'webapp.change_movie'
+    permission_required = 'webapp.change_genre'
 
 
 class GenreDeleteView(PermissionRequiredMixin, DeleteView):
