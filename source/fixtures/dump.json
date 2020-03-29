@@ -193,14 +193,6 @@
 },
 {
   "model": "webapp.genre",
-  "pk": 83,
-  "fields": {
-    "title": "\u0422\u043e\u043f-500",
-    "slug": "top-500"
-  }
-},
-{
-  "model": "webapp.genre",
   "pk": 84,
   "fields": {
     "title": "\u0424\u0438\u043b\u044c\u043c\u044b \u043f\u0440\u043e \u0432\u0430\u043c\u043f\u0438\u0440\u043e\u0432",
@@ -1192,7 +1184,19 @@
     "rating": 50,
     "text": "\u041d\u043e\u0440\u043c",
     "created_at": "2020-03-25T12:40:51.703Z",
-    "update_at": "2020-03-25T12:40:51.703Z"
+    "update_at": "2020-03-29T09:57:51.323Z"
+  }
+},
+{
+  "model": "webapp.rating",
+  "pk": 13,
+  "fields": {
+    "movie": 21,
+    "reviewer": 1,
+    "rating": 100,
+    "text": "Best movie :O!",
+    "created_at": "2020-03-27T15:25:42.876Z",
+    "update_at": "2020-03-27T15:25:42.876Z"
   }
 },
 {

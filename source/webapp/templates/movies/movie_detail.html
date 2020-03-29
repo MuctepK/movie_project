@@ -72,22 +72,31 @@
                             <h4 href="#" class="fa-2x text-center">Отзывы</h4>
                             {% for review in movie.reviews_taken.all %}
 							<div class="media">
-								<h5>{{ review.reviewer }}</h5>
+								<h5>Пользователь:{{ review.reviewer }}</h5>
 								<div class="media-left">
 									<a href="#">
-										<img src="images/user.jpg" title="One movies" alt=" " />
+                                        {% if review.reviewer.profile.photo %}
+										<img src="{{review.reviewer.profile.photo.url}}" title="One movies" alt=" " />
+                                        {% else %}
+                                        <img src="{% static 'images/no-photo-person.png' %}" title="One movies" alt=" " />
+                                        {% endif %}
 									</a>
 								</div>
 								<div class="media-body">
-									<p>{{review.text}} {{ review.rating }}</p>
-									<span>Все посты отправленные :<a href="#"> {{review.reviewer}} </a></span>
+                                    <h4>Отзыв</h4>
+									<p>{{review.text}}</p>
+                                    <h4>Оценка:  {{ review.rating }}/100</h4>
+
+									<span>Все посты отправленные :<a href="{% url 'accounts:profile_detail' review.reviewer.pk %}"> {{review.reviewer}} </a></span>
 								</div>
-                                {% if request.user.is_authenticated and review.reviewer == request.user %}
                                 <div class="media-bottom">
+                                    {% if request.user.is_authenticated and review.reviewer == request.user  or perms.webapp.change_rating%}
                                     <a href="{% url 'webapp:rating_update' review.pk %}" class="btn btn-primary">Изменить этот отзыв</a>
+                                        {% endif %}
+                                 {% if request.user.is_authenticated and review.reviewer == request.user  or perms.webapp.delete_rating%}
                                 <a href="{% url 'webapp:rating_delete' review.pk %}" class="btn btn-danger">Удалить этот отзыв</a>
-                                </div>
                                 {% endif %}
+                                </div>
 							</div>
                                 {% empty %}
                                 <h2 class="text-center" style="margin:50px 0;">Еще никто не оставил отзыва...</h2>

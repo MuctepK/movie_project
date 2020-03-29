@@ -36,7 +36,7 @@ class RatingUpdateView(UserPassesTestMixin, UpdateView):
         return reverse('webapp:movie_detail', kwargs={'pk': self.object.movie.pk})
 
     def test_func(self):
-        return self.request.user == self.object.reviewer
+        return self.request.user == self.get_object().reviewer or self.request.user.has_perm('webapp.change_rating')
 
 
 class RatingDeleteView(UserPassesTestMixin, DeleteView):
@@ -51,4 +51,4 @@ class RatingDeleteView(UserPassesTestMixin, DeleteView):
         return reverse('webapp:movie_detail', kwargs={'pk': self.movie.pk})
 
     def test_func(self):
-        return self.request.user == self.object.reviewer
+        return self.request.user == self.get_object().reviewer or self.request.user.has_perm('webapp.delete_rating')
